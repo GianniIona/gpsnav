@@ -150,10 +150,12 @@
 
   // called on device orientation change
   function onHeadingChange(event) {
-    var heading = event.alpha;
+    var heading;
 
     if (typeof event.webkitCompassHeading !== "undefined") {
       heading = event.webkitCompassHeading; //iOS non-standard
+    } else {
+      heading = event.alpha; 
     }
 
     var orientation = getBrowserOrientation();
