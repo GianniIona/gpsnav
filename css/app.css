@@ -110,9 +110,16 @@ header {
       width: 100%;
     }
 
-  .compass__pointer {
+  .compass__pointer__needle {
     height: 100%;
     width: 100%;
+  }
+  .compass__pointer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
 
