@@ -39,6 +39,8 @@
   var btnNightmode = document.getElementById("btn-nightmode");
   var btnMap = document.getElementById("btn-map");
   var btnInfo = document.getElementById("btn-info");
+  var btnDecUP = document.getElementById("btn-decUP");
+  var btnDecDN = document.getElementById("btn-decDN");
 
 
   // if we have shown the heading unavailable warning yet
@@ -54,6 +56,8 @@
   // the orientation of the device on app load
   var defaultOrientation;
 
+  // set magnetic declination
+  var declination_offset = document.getElementById("declination-val");
 
   // browser agnostic orientation
   function getBrowserOrientation() {
@@ -197,6 +201,7 @@
       positionHng.textContent = (360 - phase | 0) + "°";
 
 
+
       // apply rotation to compass pointer
       if (typeof pointer.style.transform !== "undefined") {
         pointer.style.transform = "rotateZ(" + positionCurrent.hng + "deg)";
@@ -210,6 +215,24 @@
       showHeadingWarning();
     }
   }
+
+  function setDeclinationOffsetUP() {
+    declination_offset.textContent++;
+    setDeclinationOffset();
+  }
+  function setDeclinationOffsetDN() {
+    declination_offset.textContent--;
+    setDeclinationOffset();
+  }
+  function setDeclinationOffset() {
+
+    // apply magnetic declination
+    if (typeof declination.style.transform !== "undefined") {
+      declination.style.transform = "rotateZ(" + declination_offset.textContent + "deg)";
+    } else if (typeof declination.style.webkitTransform !== "undefined") {
+      declination.style.webkitTransform = "rotateZ(" + declination_offset.textContent + "deg)";
+    }
+}
 
   function showHeadingWarning() {
     if (!warningHeadingShown) {
@@ -406,6 +429,9 @@
   btnNightmode.addEventListener("click", toggleNightmode);
   btnMap.addEventListener("click", openMap);
 
+  btnDecDN.addEventListener("click", setDeclinationOffsetDN);
+  btnDecUP.addEventListener("click", setDeclinationOffsetUP);
+
   var i;
   for (i=0; i<btnsPopup.length; i++) {
     btnsPopup[i].addEventListener("click", popupOpenFromClick);
@@ -420,7 +446,10 @@
     timeout: 27000
   });
 
+  setDeclinationOffset();
   setNightmode(false);
   checkLockable();
 
 }());
+
+
