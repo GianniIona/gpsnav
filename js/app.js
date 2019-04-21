@@ -1,15 +1,17 @@
-(function () {
-  "use strict";
-
-  //set to true for debugging output
-  var debug = false;
-
   // our current position
   var positionCurrent = {
     lat: null,
     lng: null,
     hng: null
   };
+
+
+(function () {
+  "use strict";
+
+  //set to true for debugging output
+  var debug = false;
+
 
 
   // the outer part of the compass that rotates
@@ -408,6 +410,8 @@
 
     return degrees + "° " + minutes + "' " + seconds + "\" " + direction;
   }
+
+
 
   if (screen.width > screen.height) {
     defaultOrientation = "landscape";

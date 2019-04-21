@@ -15,14 +15,37 @@
 
     <title>Compass</title>
     <link rel="stylesheet" href="css/app.css">
-</head>
+    <script src="js/bearing_calc.js"></script>
+    <script src="js/load_wpt.js"></script>
+  </head>
 
 <body>
   <header>
     <h1>Compass</h1>
   </header>
-
+  
   <div class="container">
+
+    <div class="waypoints">
+      <input class="gpx__select" type="file" onchange="readGPXFile(event)" >
+      <div>
+        <table id="waypoint_list">
+          <tr>
+            <th class="wpt_name">Waypoint</th>
+            <th class="wpt_lat">Latitue</th>
+            <th class="wpt_lon">Longitude</th>
+            <th class="wpt_symbol">Symbol</th>
+            <th class="wpt_type">Type</th>
+            <th class="wpt_description">Description</th>
+            <th class="wpt_heading">Heading</th>
+            <th class="wpt_distance">Distance</th>
+          </tr>
+        </table>
+        <!-- <ul id="waypoint_list"></ul> -->
+
+      </div>
+      
+    </div>
 
     <div class="compass">
 
@@ -60,6 +83,8 @@
 
     </div>
   </div>
+
+
 
 
   <div class='status'>
@@ -188,6 +213,5 @@
   </div>
 
   <script src="js/app.js"></script>
-
 </body>
 </html>
