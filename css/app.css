@@ -31,14 +31,6 @@ html {
   display: inline-block;
 }
 
-  .column-33 {
-    width: 33.33333%;
-  }
-
-  .column-25 {
-    width: 25%;
-  }
-
   .label {
     font-size: 0.5rem;
   }
