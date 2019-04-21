@@ -66,6 +66,7 @@ header {
   position: relative;
 }
 
+
 .container {
   padding: 5rem 1rem 8rem 1rem;
   overflow: hidden;
@@ -137,6 +138,21 @@ header {
   bottom: 0;
 }
 
+
+
+.options-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+
+.options-flex-container > div {
+  background-color: transparent;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+}
 
 .btn {
   border: 0;
