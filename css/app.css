@@ -45,7 +45,6 @@ body {
 header {
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.2);
-  //position: fixed;
   display: flex;
   top: 0;
   right: 0;
@@ -69,17 +68,11 @@ header {
 
 .container > div {
   background-color: transparent;
-  //width: 33.3%;
-  //text-align: center;
-  //font-size: 30px;
 }
 
 .waypoints {
-  //position: absolute;
   display: flex;
   flex-direction: column;
-  //top: 70px;
-  //left: 0;
   width: 50%;
   height: 50%;
   text-align: center;
@@ -92,9 +85,6 @@ header {
 
 .compass {
   display: flex;
-  //position: absolute;
-  //top: 70px;
-  //right: 0;
   width: 50%;
   height: 50%;
   text-align: center;
@@ -102,10 +92,6 @@ header {
 
 .compass__rose {
   position: absolute;
-  //top: 0;
-  //left: 0;
-  //right: 0;
-  //bottom: 0;
 }
 
 .compass__rose__dial {
@@ -115,10 +101,6 @@ header {
 
 .compass__declination {
   position: absolute;
-  //top: 0;
-  //left: 0;
-  //right: 0;
-  //bottom: 0;
 }
 
 .compass__declination__dial {
@@ -133,10 +115,6 @@ header {
 
 .compass__pointer {
   position: absolute;
-  //top: 0;
-  //left: 0;
-  //right: 0;
-  //bottom: 0;
 }
 
 
