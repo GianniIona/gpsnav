@@ -70,17 +70,17 @@ function update_wpt_list() {
         cell_desc.innerHTML = GPX_json.gpx.wpt[i].desc['#text'];
         cell_desc.className = "wpt_description";
 
-        var cell_heading = row.insertCell(6);
-        cell_heading.innerHTML = 'unknown';  //heading
+        var cell_bearing = row.insertCell(6);
+        cell_bearing.innerHTML = 'unknown';  //bearing
 
         var cell_distance = row.insertCell(7);
         cell_distance.innerHTML = 'unknown';  //distance
     }
-    update_wpt_headings();
+    update_wpt_bearings();
 }
 
-function update_wpt_headings() {
-    console.log('updating headings for waypoints');
+function update_wpt_bearings() {
+    console.log('updating bearings for waypoints');
     var table = document.getElementById("waypoint_list");
     var items = table.rows;
 
@@ -92,20 +92,23 @@ function update_wpt_headings() {
         var dst_lat = items[i].cells[1].innerHTML;
         var dst_lon = items[i].cells[2].innerHTML;
 
-        console.log("calc heading for c_lat" + positionCurrent.lat + "  c_lon " + positionCurrent.lng + "  d_lat " + dst_lat + "  d_lon " + dst_lon);
+        console.log("calc bearing for c_lat" + positionCurrent.lat + "  c_lon " + positionCurrent.lng + "  d_lat " + dst_lat + "  d_lon " + dst_lon);
         
-        var heading = geo.bearing(positionCurrent.lat ,positionCurrent.lng ,dst_lat,dst_lon);
-        var distance = geo.distance(positionCurrent.lat ,positionCurrent.lng ,dst_lat,dst_lon,'M');
+        //var bearing = geo.bearing(positionCurrent.lat ,positionCurrent.lng ,dst_lat,dst_lon);
+        //var distance = geo.distance(positionCurrent.lat ,positionCurrent.lng ,dst_lat,dst_lon,'M');
+        var B_D = geo.bearing_distance(positionCurrent.lat ,positionCurrent.lng ,dst_lat,dst_lon,'M');
+        var bearing = B_D[0];
+        var distance = B_D[1];
 
         // round to 2 decimals, JS only round integers, so need to multiply and divide to get decimals
         var decimals = 100;
-        heading = Math.round(heading * decimals) / decimals;
+        bearing = Math.round(bearing * decimals) / decimals;
         distance = Math.round(distance * decimals) / decimals;
 
-        items[i].cells[6].innerHTML = heading;
+        items[i].cells[6].innerHTML = bearing;
         items[i].cells[7].innerHTML = distance;
 
-        console.log('updating heading for ' + name);
+        console.log('updating bearing for ' + name);
 
     }
 }
@@ -155,4 +158,4 @@ function xmlToJson(xml) {
 
 // BUG:  this data will lag, it will probably be getting the last itteration gps details
 //       its good enough for now
-window.addEventListener("deviceorientationabsolute", update_wpt_headings);
+window.addEventListener("deviceorientationabsolute", update_wpt_bearings);
