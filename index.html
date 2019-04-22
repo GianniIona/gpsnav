@@ -27,7 +27,9 @@
   <div class="container">
 
     <div class="waypoints">
-      <input class="gpx__select" type="file" onchange="readGPXFile(event)" >
+      <div>
+        <input class="gpx__select" type="file" onchange="readGPXFile(event)" >
+      </div>
       <div>
         <table id="waypoint_list">
           <tr>
@@ -41,16 +43,11 @@
             <th class="wpt_distance">Distance</th>
           </tr>
         </table>
-        <!-- <ul id="waypoint_list"></ul> -->
-
       </div>
-      
     </div>
 
     <div class="compass">
-
       <div id="rose" class="compass__rose">
-
         <svg class="compass__rose__dial" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
           <circle cx="65" cy="65" r="56" stroke="white" stroke-width="1" fill="none" />
@@ -80,7 +77,6 @@
           <circle cx="65" cy="65" r="5" stroke="#b60000" stroke-width="5" fill="none" />
         </svg>
       </div>
-
     </div>
   </div>
 
