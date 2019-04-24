@@ -270,6 +270,7 @@ td.max-width {
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: 2;
 
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -357,6 +358,7 @@ html.nightmode {
   .settings_dropdown-content {
     display: none;
     position: absolute;
+    right: 0;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -372,7 +374,8 @@ html.nightmode {
   }
 
   .settings_dropdown-content a:hover {background-color: #ddd;}
-  
+
   .settings_dropdown:hover .settings_dropdown-content {display: block;}
   
   .settings_dropdown:hover .settings_dropbtn {background-color: #3e8e41;}
+  
