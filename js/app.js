@@ -200,6 +200,10 @@
       } else if (typeof pointer.style.webkitTransform !== "undefined") {
         pointer.style.webkitTransform = "rotateZ(" + positionCurrent.hng + "deg)";
       }
+      
+      // make sure the pointer is displayed if a heading is available
+      var pointer = document.getElementById("pointer");
+      pointer.setAttribute('style', 'display: inherit');
     } else {
       // device can't show heading
 
