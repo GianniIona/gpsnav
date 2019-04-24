@@ -12,29 +12,23 @@
   //set to true for debugging output
   var debug = false;
 
-
-
   // the outer part of the compass that rotates
   var rose = document.getElementById("rose");
-
 
   // elements that ouput our position
   var positionLat = document.getElementById("position-lat");
   var positionLng = document.getElementById("position-lng");
   var positionHng = document.getElementById("position-hng");
 
-
   // debug outputs
   var debugOrientation = document.getElementById("debug-orientation");
   var debugOrientationDefault = document.getElementById("debug-orientation-default");
-
 
   // info popup elements, pus buttons that open popups
   var popup = document.getElementById("popup");
   var popupContents = document.getElementById("popup-contents");
   var popupInners = document.querySelectorAll(".popup__inner");
   var btnsPopup = document.querySelectorAll(".btn-popup");
-
 
   // buttons at the bottom of the screen
   var btnLockOrientation = document.getElementById("btn-lock-orientation");
@@ -169,11 +163,9 @@
     if (typeof heading !== "undefined" && heading !== null) { // && typeof orientation !== "undefined") {
       // we have a browser that reports device heading and orientation
 
-
       if (debug) {
         debugOrientation.textContent = orientation;
       }
-
 
       // what adjustment we have to add to rotation to allow for current device orientation
       var adjustment = 0;
@@ -201,8 +193,6 @@
 
       var phase = positionCurrent.hng < 0 ? 360 + positionCurrent.hng : positionCurrent.hng;
       positionHng.textContent = (360 - phase | 0) + "°";
-
-
 
       // apply rotation to compass pointer
       if (typeof pointer.style.transform !== "undefined") {
