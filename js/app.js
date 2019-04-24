@@ -228,7 +228,9 @@
 
   function showHeadingWarning() {
     if (!warningHeadingShown) {
-      popupOpen("noorientation");
+//      popupOpen("noorientation");
+      var pointer = document.getElementById("pointer");
+      pionter.setAttribute('style', 'display: none');
       warningHeadingShown = true;
     }
   }
