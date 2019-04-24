@@ -204,7 +204,9 @@
       // device can't show heading
 
       positionHng.textContent = "n/a";
-      showHeadingWarning();
+      var pointer = document.getElementById("pointer");
+      pionter.setAttribute('style', 'display: none');
+      //showHeadingWarning();
     }
   }
 
@@ -228,9 +230,7 @@
 
   function showHeadingWarning() {
     if (!warningHeadingShown) {
-//      popupOpen("noorientation");
-      var pointer = document.getElementById("pointer");
-      pionter.setAttribute('style', 'display: none');
+      popupOpen("noorientation");
       warningHeadingShown = true;
     }
   }
