@@ -6,6 +6,8 @@ CACHE:
 css/app.css
 fonts/Muli-Light.ttf
 images/bg.jpg
+images/logo-app.png
 images/logo.png
 js/app.js
-
+js/bearing_calc.js
+js/load_wpt.js
