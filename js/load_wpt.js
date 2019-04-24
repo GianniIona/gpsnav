@@ -118,7 +118,8 @@ function update_wpt_bearings() {
 }
 
 function setCompassBearing(bearing) {
-    // apply rotation to compass pointer
+    // apply rotation to compass bearing
+    bearing = 360 - bearing;
     if (typeof rose.style.transform !== "undefined") {
         rose.style.transform = "rotateZ(" + bearing + "deg)";
         declination.style.transform = "rotateZ(" + bearing + "deg)";
