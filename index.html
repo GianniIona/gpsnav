@@ -20,7 +20,7 @@
   </head>
 
 <body>
-  <atricle>
+  <article>
   <header>
     <h1>Compass</h1>
   </header>
@@ -65,7 +65,7 @@
         <input class="gpx__select" type="file" onchange="readGPXFile(event)" >
       </div>
       <div>
-        <table id="waypoint_list">
+        <table id="waypoint_list" class="waypoint_list">
           <tr>
             <th class="wpt_name">Waypoint</th>
             <th class="wpt_lat">Latitue</th>
@@ -73,8 +73,8 @@
             <th class="wpt_symbol">Symbol</th>
             <th class="wpt_type">Type</th>
             <th class="wpt_description">Description</th>
-            <th class="wpt_bearing">Bearing</th>
-            <th class="wpt_distance">Distance</th>
+            <th class="wpt_bearing">BRG</th>
+            <th class="wpt_distance">Dist</th>
           </tr>
         </table>
       </div>
@@ -211,6 +211,6 @@
   </div>
 
   <script src="js/app.js"></script>
-</atricle>
+</article>
 </body>
 </html>

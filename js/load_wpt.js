@@ -50,7 +50,7 @@ function update_wpt_list() {
 
         var cell_name = row.insertCell(0);
         cell_name.innerHTML = wpt_txt;
-        cell_name.className = "wpt_name";
+        cell_name.className = "wpt_name max-width";
         
         var cell_lat = row.insertCell(1);
         cell_lat.innerHTML = GPX_json.gpx.wpt[i]["@attributes"].lat;
@@ -63,8 +63,11 @@ function update_wpt_list() {
         cell_sym.className = "wpt_symbol";
 
         var cell_type = row.insertCell(4);
-        cell_type.innerHTML = GPX_json.gpx.wpt[i].type['#text'];
-        cell_type.className = "wpt_type";
+         
+        if (typeof GPX_json.gpx.wpt[i].type !== 'undefined') {
+            cell_type.innerHTML = GPX_json.gpx.wpt[i].type['#text'];
+            cell_type.className = "wpt_type";
+        }
 
         var cell_desc = row.insertCell(5);
         cell_desc.innerHTML = GPX_json.gpx.wpt[i].desc['#text'];
@@ -102,15 +105,28 @@ function update_wpt_bearings() {
 
         // round to 2 decimals, JS only round integers, so need to multiply and divide to get decimals
         var decimals = 100;
-        bearing = Math.round(bearing * decimals) / decimals;
+        bearing = Math.round(bearing);
         distance = Math.round(distance * decimals) / decimals;
 
         items[i].cells[6].innerHTML = bearing;
         items[i].cells[7].innerHTML = distance;
+        items[i].cells[6].setAttribute("onclick", "setCompassBearing(" + bearing + ")");
 
         console.log('updating bearing for ' + name);
 
     }
+}
+
+function setCompassBearing(bearing) {
+    // apply rotation to compass pointer
+    if (typeof rose.style.transform !== "undefined") {
+        rose.style.transform = "rotateZ(" + bearing + "deg)";
+        declination.style.transform = "rotateZ(" + bearing + "deg)";
+    } else if (typeof rose.style.webkitTransform !== "undefined") {
+        declination.style.webkitTransform = "rotateZ(" + bearing + "deg)";
+        rose.style.webkitTransform = "rotateZ(" + bearing + "deg)";
+    }
+    
 }
 
 
