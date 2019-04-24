@@ -23,6 +23,15 @@
   <article>
   <header>
     <h1>Compass</h1>
+    <div class="header_middle"></div>
+    <div class="settings_dropdown">
+        <button class="settings_dropbtn">Settings</button>
+        <div class="settings_dropdown-content">
+          <a href="#" class="btn-popup" data-name="declination">Declination</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
   </header>
   
   <div class="container">
@@ -173,13 +182,14 @@
           </svg>
         </button>
       </div>
-
+<!--
       <div class='position options__btn'>
         <div class='label'>Declination</div>
-        <button class='column-' id="btn-decDN" type="button" type="button" data-name='decDN'>-</button>
-        <div id='declination-val' class='column-'>0</div>
-        <button id="btn-decUP" class='column-' type="button" type="button" data-name='decUP'>+</button>
+        <button class='column-' id="btn-decDN-old" type="button" type="button" data-name='decDN'>-</button>
+        <div id='declination-val-old' class='column-'>0</div>
+        <button id="btn-decUP-old" class='column-' type="button" type="button" data-name='decUP'>+</button>
       </div>
+      -->
   </div>
 
 
@@ -200,6 +210,17 @@
         <div id="popup-inner-noorientation" class="popup__inner popup__inner--hide">
           <p>
             Unfortunately this browser doesn't support orientation so will not show your correct heading.
+          </p>
+        </div>
+
+        <div id="popup-inner-declination" class="popup__inner popup__inner--hide">
+          <p>
+              <div>Declination</div>
+              <p>Offset between true north and magnetic north for your area.</p>
+              <br>
+              <button class='column-' id="btn-decDN" type="button" type="button" data-name='decDN'>-</button>
+              <div id='declination-val' class='column-'>0</div>
+              <button id="btn-decUP" class='column-' type="button" type="button" data-name='decUP'>+</button>
           </p>
         </div>
       </div>
