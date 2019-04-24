@@ -205,7 +205,7 @@
 
       positionHng.textContent = "n/a";
       var pointer = document.getElementById("pointer");
-      pionter.setAttribute('style', 'display: none');
+      pointer.setAttribute('style', 'display: none');
       //showHeadingWarning();
     }
   }
