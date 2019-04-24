@@ -202,14 +202,14 @@
       }
       
       // make sure the pointer is displayed if a heading is available
-      var pointer = document.getElementById("pointer");
-      pointer.setAttribute('style', 'display: inherit');
+      //var pointer = document.getElementById("pointer");
+      pointer.style.display = 'inherit';
     } else {
       // device can't show heading
 
       positionHng.textContent = "n/a";
-      var pointer = document.getElementById("pointer");
-      pointer.setAttribute('style', 'display: none');
+      //var pointer = document.getElementById("pointer");
+      pointer.style.display = 'none';
       //showHeadingWarning();
     }
   }
