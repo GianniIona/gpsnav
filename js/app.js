@@ -203,7 +203,7 @@
       
       // make sure the pointer is displayed if a heading is available
       //var pointer = document.getElementById("pointer");
-      pointer.style.display = 'inherit';
+      pointer.style.display = 'initial';
     } else {
       // device can't show heading
 
