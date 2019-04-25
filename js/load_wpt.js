@@ -44,7 +44,7 @@ function update_wpt_list() {
         wpt_txt = GPX_json.gpx.wpt[i].name['#text'];
         //alert(wpt_txt);
 
-        var table = document.getElementById("waypoint_list");
+        var table = document.getElementById("waypoint_list_body");
         var waypoint = document.getElementById(wpt_txt);
         var row = table.insertRow();
 
