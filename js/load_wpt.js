@@ -92,6 +92,7 @@ function update_wpt_bearings() {
         // do something with items[i], which is a <li> element
 
         var name = items[i].cells[0].innerHTML;
+        var desc = items[i].cells[5].innerHTML;
         var dst_lat = items[i].cells[1].innerHTML;
         var dst_lon = items[i].cells[2].innerHTML;
 
@@ -110,14 +111,15 @@ function update_wpt_bearings() {
 
         items[i].cells[6].innerHTML = bearing;
         items[i].cells[7].innerHTML = distance;
-        items[i].cells[6].setAttribute("onclick", "setCompassBearing(" + bearing + ")");
+        items[i].cells[6].setAttribute("onclick", "setCompassBearing(" + bearing + "," + dst_lat + "," + dst_lon + ",\"" + name + "\", \"" + desc + "\")");
+
 
         console.log('updating bearing for ' + name);
 
     }
 }
 
-function setCompassBearing(bearing) {
+function setCompassBearing(bearing, dst_lat, dst_lon, name, desc) {
     // apply rotation to compass bearing
     bearing = 360 - bearing;
     if (typeof rose.style.transform !== "undefined") {
@@ -127,7 +129,30 @@ function setCompassBearing(bearing) {
         declination.style.webkitTransform = "rotateZ(" + bearing + "deg)";
         rose.style.webkitTransform = "rotateZ(" + bearing + "deg)";
     }
+
+    // update the bearing number display
+    var destBrg = document.getElementById("dest-brg");
+    // no device orientation adjestment should be needed, we just want the number
+    //bearing = bearing + adjustment;
+
+    var phase = bearing < 0 ? 360 + bearing : bearing;
+    destBrg.textContent = (360 - phase | 0) + "°";
     
+    // update the gps destination
+    var destLat = document.getElementById("dest-lat");
+    var destLng = document.getElementById("dest-lng");
+
+//    destLat.textContent = decimalToSexagesimal(dst_lat, "lat");
+//    destLng.textContent = decimalToSexagesimal(dst_lon, "lng");
+    destLat.textContent = dst_lat;
+    destLng.textContent = dst_lon;
+
+    // Update the destination name and description
+    var destName = document.getElementById("dest-name");
+    var destDesc = document.getElementById("dest-desc");
+    destName.textContent = name;
+    destDesc.textContent = desc;
+
 }
 
 
