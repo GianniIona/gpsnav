@@ -198,6 +198,6 @@ function xmlToJson(xml) {
 	return obj;
 };
 
-// BUG:  this data will lag, it will probably be getting the last itteration gps details
+// BUG: issue #8  this data will lag, it will probably be getting the last itteration gps details
 //       its good enough for now
 window.addEventListener("deviceorientationabsolute", update_wpt_bearings);
