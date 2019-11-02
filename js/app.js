@@ -31,7 +31,7 @@
   var btnsPopup = document.querySelectorAll(".btn-popup");
 
   // buttons at the bottom of the screen
-  var btnLockOrientation = document.getElementById("btn-lock-orientation");
+  //var btnLockOrientation = document.getElementById("btn-lock-orientation");
   var btnNightmode = document.getElementById("btn-nightmode");
   var btnMap = document.getElementById("btn-map");
   var btnInfo = document.getElementById("btn-info");
@@ -254,11 +254,11 @@
   function toggleOrientationLockable(lockable) {
     isOrientationLockable = lockable;
 
-    if (isOrientationLockable) {
-      btnLockOrientation.classList.remove("btn--hide");
-    } else {
-      btnLockOrientation.classList.add("btn--hide");
-    }
+    //if (isOrientationLockable) {
+    //  btnLockOrientation.classList.remove("btn--hide");
+    //} else {
+    //  btnLockOrientation.classList.add("btn--hide");
+    //}
   }
 
   function checkLockable() {
@@ -293,11 +293,11 @@
   }
 
   function lockOrientation(locked) {
-    if (locked) {
-      btnLockOrientation.classList.add("active");
-    } else {
-      btnLockOrientation.classList.remove("active");
-    }
+    //if (locked) {
+    //  btnLockOrientation.classList.add("active");
+    //} else {
+    //  btnLockOrientation.classList.remove("active");
+    //}
 
     isOrientationLocked = locked;
   }
@@ -411,7 +411,7 @@
   document.addEventListener("mozfullscreenchange", onFullscreenChange);
   document.addEventListener("MSFullscreenChange", onFullscreenChange);
 
-  btnLockOrientation.addEventListener("click", toggleOrientationLock);
+  //btnLockOrientation.addEventListener("click", toggleOrientationLock);
   btnNightmode.addEventListener("click", toggleNightmode);
   btnMap.addEventListener("click", openMap);
 
